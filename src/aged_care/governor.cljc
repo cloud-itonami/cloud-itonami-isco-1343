@@ -35,7 +35,7 @@
   always require human review):
     5. :op :flag-incident — incident flagging always requires human validation.
     6. low confidence (< `confidence-floor`)."
-  (:require [aged-care.store :as store]))
+  (:require [kotoba.lang.text] [aged-care.store :as store]))
 
 (def confidence-floor 0.6)
 (def ^:private escalating-ops #{:flag-incident})
@@ -48,8 +48,8 @@
   references. Returns true if clinical content is detected."
   [proposal]
   (let [proposal-str (str proposal)
-        lower-str (clojure.string/lower-case proposal-str)]
-    (boolean (some #(clojure.string/includes? lower-str (name %))
+        lower-str (kotoba.lang.text/lower proposal-str)]
+    (boolean (some #(kotoba.lang.text/includes? lower-str (name %))
                    clinical-keywords))))
 
 (defn- hard-violations [{:keys [proposal request]} facility-record resident-record]
