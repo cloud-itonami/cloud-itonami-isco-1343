@@ -80,17 +80,17 @@ human-in-the-loop interrupt/resume via checkpointing.
                                            +-> :hold               (:hard? true)
 ```
 
-- `src/aged_care/store.cljc` — `Store` protocol + `MemStore`:
+- `src/aged_care/store.kotoba` — `Store` protocol + `MemStore`:
   registered facilities, registered residents, committed administrative records,
   an append-only audit ledger. Note: clinical data (care plans, medications,
   diagnoses) is NOT stored here — that remains in clinical systems.
-- `src/aged_care/advisor.cljc` — `Advisor` protocol; `mock-advisor`
+- `src/aged_care/advisor.kotoba` — `Advisor` protocol; `mock-advisor`
   (deterministic, default) proposes an administrative operation from a
   request; `llm-advisor` wraps a `langchain.model/ChatModel` — either
   way the advisor only ever produces a `:propose`-effect proposal,
   never a committed record, and LLM parse failures always yield
   `confidence 0.0` (forces escalation, never fabricated confidence).
-- `src/aged_care/governor.cljc` — `AgedCareGovernor/check`: a pure
+- `src/aged_care/governor.kotoba` — `AgedCareGovernor/check`: a pure
   function, wired as its own `:govern` node. Hard invariants
   (unregistered facility, unregistered resident, a proposal whose `:effect` isn't `:propose`,
   or any proposal containing clinical decision-making) always route to `:hold`.
@@ -99,7 +99,7 @@ human-in-the-loop interrupt/resume via checkpointing.
   checkpoints and only resumes on explicit human approval
   (`actor/approve!`), matching the README's administrative-boundary premise
   that incident flagging always requires human validation.
-- `src/aged_care/actor.cljc` — `build-graph`, `run-request!`,
+- `src/aged_care/actor.kotoba` — `build-graph`, `run-request!`,
   `approve!`: the `langgraph.graph/state-graph` wiring itself.
 
 ```bash
