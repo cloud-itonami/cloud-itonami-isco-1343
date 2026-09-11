@@ -30,7 +30,7 @@ Include:
 Run the full test suite before deployment:
 
 ```bash
-clojure -M:test
+kbb -M:test
 ```
 
 Tests verify governor invariants, store immutability, and actor correctness.

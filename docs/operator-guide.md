@@ -82,7 +82,7 @@ violation). Attempts to use this actor for clinical decision-making will fail wi
 Run the full test suite:
 
 ```bash
-clojure -M:test
+kbb -M:test
 ```
 
 ## Checkpointing and Resume

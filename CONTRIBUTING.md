@@ -7,7 +7,7 @@ When contributing:
 
 1. Write `.cljc` (portable Clojure) — no JVM-only constructs
 2. Add tests for any new behavior
-3. Ensure all tests pass: `clojure -M:test`
+3. Ensure all tests pass: `kbb -M:test`
 4. Do not commit changes that weaken the scope boundary (administrative support only)
 5. Any change to the governor's hard or escalation rules requires issue discussion first
 
