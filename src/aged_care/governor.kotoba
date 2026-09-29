@@ -4,7 +4,7 @@
   node in `aged-care.actor`'s StateGraph, downstream of `:advise` — the
   Advisor has no notion of facility/resident provenance or clinical-decision
   risk, so this MUST be a separate system able to reject a proposal (itonami
-  actor pattern, per ADR-2607011000 / CLAUDE.md Actors section).
+  actor pattern, per ADR-2607011000 / AGENTS.md Actors section).
 
   CRITICAL SCOPE BOUNDARY: This actor supports ADMINISTRATIVE management only
   — staff scheduling, resident record administration, family correspondence,
