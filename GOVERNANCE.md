@@ -1,7 +1,7 @@
 # Governance
 
 This is an open-source reference implementation under the itonami actor pattern
-(per ADR-2607011000 / CLAUDE.md, cloud-itonami).
+(per ADR-2607011000 / AGENTS.md, cloud-itonami).
 
 ## Decision-Making
 
